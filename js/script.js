@@ -43,9 +43,45 @@
 
 
   }
+
   const links = document.querySelectorAll('.titles a');
   
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
-  }  
+  }
+  
+  const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
+  function generateTitleLinks(){
+
+    /* [DONE] remove contents of titleList */
+
+    const titleList = document.querySelector(optTitleListSelector);
+    titleList.innerHTML = ''; 
+
+    /* for each article */
+
+    const articles = optArticleSelector;
+
+    for (let article of articles){
+
+    /* get the article id */
+
+    const articleId = articles.getAttribute('id');
+    console.log('id artykułu: ', articleId, article);
+
+    /* find the title element */
+
+    /* get the title from the title element */
+
+    /* create HTML of the link */
+
+    /* insert link into titleList */
+    }
+
+  }
+
+  generateTitleLinks();
 }
