@@ -53,7 +53,9 @@ body {
 }
 
 .posts {
+  position: relative;
   flex: 2 0 0;
+  
 }
 
 .sidebar, .posts {
@@ -63,6 +65,8 @@ body {
   border: 1px solid $color-dark;
   border-radius: 5px;
 }
+
+
 
 /* Logo */
 
@@ -102,9 +106,15 @@ body {
 /* Post */
 
 .post {
-  display: none;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  position: absolute;
+  opacity: 0;
+  
   &.active {
-    display: block;
+    opacity: 1;
+    transition: 1s;
+    z-index: 9999;
   }
 }
 

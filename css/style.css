@@ -45,6 +45,7 @@ body {
 }
 
 .posts {
+  position: relative;
   -ms-flex: 2 0 0px;
       flex: 2 0 0;
 }
@@ -88,11 +89,16 @@ body {
 
 /* Post */
 .post {
-  display: none;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  position: absolute;
+  opacity: 0;
 }
 
 .post.active {
-  display: block;
+  opacity: 1;
+  transition: 1s;
+  z-index: 9999;
 }
 
 .post-author {
