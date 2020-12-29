@@ -112,6 +112,7 @@ body {
   opacity: 0;
   
   &.active {
+    position: relative;
     opacity: 1;
     transition: 1s;
     z-index: 9999;
