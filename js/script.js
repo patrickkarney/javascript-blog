@@ -44,7 +44,7 @@
     
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
     let html = '';
 
     for (let article of articles){
@@ -116,10 +116,10 @@
     /* END LOOP: for each active tag link */
     }
     /* find all tag links with "href" attribute equal to the "href" constant */
-    const tagLinks = document.querySelector('a[href="' + href + '"]')
+    const tagLinks = document.querySelector('a[href="' + href + '"]');
     /* START LOOP: for each found tag link */
     for(let tagLink of tagLinks){
-      tagLink.classList.add('active')
+      tagLink.classList.add('active');
     
       /* add class active */
   
@@ -131,9 +131,11 @@
   
   function addClickListenersToTags(){
     /* find all links to tags */
-  
+    const linkTags = document.querySelectorAll('a[href^="#tag-"]');
     /* START LOOP: for each link */
-  
+    for(let linkTag of linkTags){
+      linkTag.addEventListener('click', tagClickHandler);
+    }
       /* add tagClickHandler as event listener for that link */
   
     /* END LOOP: for each link */
