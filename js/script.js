@@ -24,7 +24,9 @@
     }  
 
     const articleSelector = clickedElement.getAttribute('href');
-    const targetArticle = document.querySelector(articleSelector);  
+    console.log("articleSelector: ", articleSelector);
+    const targetArticle = document.querySelector(articleSelector);
+    console.log("targetArticle: ", targetArticle);  
     targetArticle.classList.add('active');
   }
 
@@ -116,7 +118,8 @@
     /* END LOOP: for each active tag link */
     }
     /* find all tag links with "href" attribute equal to the "href" constant */
-    const tagLinks = document.querySelector('a[href="' + href + '"]');
+    const tagLinks = document.querySelectorAll('a[href="' + href + '"]');
+    console.log("tagLink: ",tagLinks);
     /* START LOOP: for each found tag link */
     for(let tagLink of tagLinks){
       tagLink.classList.add('active');
