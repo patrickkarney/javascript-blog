@@ -174,9 +174,9 @@
   /* END LOOP: for every article: */
     }
   }
-generateAuthors();
+  generateAuthors();
 
-function authorClickHandler(event){
+  function authorClickHandler(event){
   /* prevent default action for this event */
   event.preventDefault();
   /* make new constant named "clickedElement" and give it the value of "this" */
@@ -205,15 +205,16 @@ function authorClickHandler(event){
   generateTitleLinks('[data-author~="'+ author +'"]');
 }
 
-function addClickListenersToAuthors(){
-  /* find all links to tags */
+  function addClickListenersToAuthors(){
+    /* find all links to authors */
+    const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+    /* START LOOP: for each link */
+    for(let authorLink of authorLinks){
+      /* add tagClickHandler as event listener for that link */
+      authorLink.addEventListener('click', authorClickHandler);
+    /* END LOOP: for each link */
+    }
+  }
 
-  /* START LOOP: for each link */
-
-    /* add tagClickHandler as event listener for that link */
-
-  /* END LOOP: for each link */
-}
-
-  
+  addClickListenersToAuthors();
 }
