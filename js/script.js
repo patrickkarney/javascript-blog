@@ -152,26 +152,26 @@
   addClickListenersToTags();
 
   function generateAuthors(){
-  /* find all articles */
-  const articles = document.querySelectorAll(optArticleSelector);  
-  /* START LOOP: for every article: */
-  for(let article of articles){
+    /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);  
+    /* START LOOP: for every article: */
+    for(let article of articles){
     
-    /* find authors wrapper */
-    const authorWrapper = article.querySelector(optArticleAuthorsSelector);
-    /* make html variable with empty string */
-    let html = '';
-    /* get author from data-authors attribute */
-    const articleAuthor = article.getAttribute('data-author');
-    console.log('Author: ',articleAuthor);
-    /* generate HTML of the link */
-    const linkHTML = '<a href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
-    console.log("html for author: ", linkHTML);
-    /* add generated code to html variable */
-    html = html + linkHTML;
-    /* insert HTML of all the links into the authors wrapper */
-    authorWrapper.innerHTML = html;
-  /* END LOOP: for every article: */
+      /* find authors wrapper */
+      const authorWrapper = article.querySelector(optArticleAuthorsSelector);
+      /* make html variable with empty string */
+      let html = '';
+      /* get author from data-authors attribute */
+      const articleAuthor = article.getAttribute('data-author');
+      console.log('Author: ',articleAuthor);
+      /* generate HTML of the link */
+      const linkHTML = '<a href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
+      console.log("html for author: ", linkHTML);
+      /* add generated code to html variable */
+      html = html + linkHTML;
+      /* insert HTML of all the links into the authors wrapper */
+      authorWrapper.innerHTML = html;
+    /* END LOOP: for every article: */
     }
   }
   generateAuthors();
