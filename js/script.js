@@ -70,9 +70,29 @@
 
   generateTitleLinks();
 
+  function calculateTagsParams(tags){
+    const params = {max: 0, min: 999999};
+    console.log('test');
+    for( let tag in tags ){
+      //params.max = Math.max(tags[tag], params.max);
+      //params.min = Math.min(tags[tag], params.min);
+      if(tags[tag] > params.max){
+        params.max = tags[tag];
+      }
+      if(tags[tag] < params.min){
+        params.min = tags[tag];
+      }
+      console.log(tag + ' is used ' + tags[tag] + ' times');
+    }
+    return params;
+  }
+  
   function generateTags(){
+    
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     /* START LOOP: for every article: */
@@ -116,13 +136,12 @@
     for(let tag in allTags){
       /* [NEW] generate code of a link and add it to allTagsHTML */
       allTagsHTML += '<li><a href="#tag-' + tag + '"><span>' + tag + ' </span></a>' + ' (' + allTags[tag] + ') </li>';
-      console.log('allTagsHTML: ',allTagsHTML);
-      console.log('tag: ',tag);
     }
     /* [NEW] END LOOP: for each tag in allTags: */
 
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
+    console.log('allTags: ', allTags);
     
   }
   
@@ -190,10 +209,10 @@
       let html = '';
       /* get author from data-authors attribute */
       const articleAuthor = article.getAttribute('data-author');
-      console.log('Author: ',articleAuthor);
+      
       /* generate HTML of the link */
       const linkHTML = '<a href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
-      console.log("html for author: ", linkHTML);
+      
       /* add generated code to html variable */
       html = html + linkHTML;
       /* insert HTML of all the links into the authors wrapper */
