@@ -82,6 +82,10 @@ body {
   display: inline-block;
 }
 
+.tags li {
+  display: inline-block;
+}
+
 /* Authors */
 .authors li {
   margin-bottom: 12px;
@@ -109,9 +113,45 @@ body {
 .post-tags {
   display: -ms-flexbox;
   display: flex;
+  /*Tag Cloud*/
 }
 
 .post-tags p {
   margin: 0 10px 0 0;
+}
+
+.tag-size-1 {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 12px;
+  color: #264653;
+}
+
+.tag-size-2 {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 15px;
+  color: #2A9D8F;
+}
+
+.tag-size-3 {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 18px;
+  color: #E9C46A;
+}
+
+.tag-size-4 {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 21px;
+  color: #F4A261;
+}
+
+.tag-size-5 {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 24px;
+  color: #E76F51;
 }
 /*# sourceMappingURL=style.css.map */

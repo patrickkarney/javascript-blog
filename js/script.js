@@ -90,17 +90,17 @@
   function calculateTagClass(count, params){
     /* create const "maxParamsDiff" for counting difference between "params.max" and "params.min"*/
     const  maxParamsDiff = params.max - params.min;
-    console.log('Różnica maksymalna parametrów: ', maxParamsDiff);
+    //console.log('Różnica maksymalna parametrów: ', maxParamsDiff);
     /*create const "paramsDiff" for counting difference between "count" and "params.min" */
     const paramsDiff = count - params.min;
-    console.log('różnica od danego parametru: ', paramsDiff);
+    //console.log('różnica od danego parametru: ', paramsDiff);
     /*create const for countig the quotient "paramsDiff"/"maxParamsDiff" */
     const quotient = paramsDiff/maxParamsDiff;
-    console.log('iloraz: ', quotient);
+    //console.log('iloraz: ', quotient);
     /*Use Math.floor for findig the class size */
     const classNumber = Math.floor( quotient*(optCloudClassCount - 1) + 1);
-    console.log('classNumber: ', classNumber);
-    return classNumber;
+    //console.log('classNumber: ', classNumber);
+    return optCloudClassPrefix + classNumber;
 
   }
   
@@ -152,8 +152,8 @@
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
       /* [NEW] generate code of a link and add it to allTagsHTML */
-      allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '"><span>' + tag + ' </span></a>' + ' (' + allTags[tag] + ') </li>';
-      console.log('calculateTagClass: ', calculateTagClass(allTags[tag], tagsParams));
+      allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '"><span>' + tag + ' </span></a></li>';
+      console.log('allTagsHTML: ', allTagsHTML);
     }
     /* [NEW] END LOOP: for each tag in allTags: */
 

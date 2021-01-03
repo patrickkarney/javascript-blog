@@ -92,8 +92,14 @@ body {
 .list-horizontal {
   li {
     display: inline-block;
+    
   }
 }
+
+.tags li{
+  display: inline-block;
+}
+
 
 /* Authors */
 
@@ -128,4 +134,39 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+
+/*Tag Cloud*/
+
 }
+.tag-size-1 {
+  justify-content: space-around;
+  font-size: 12px;
+  color: #264653;
+}
+
+.tag-size-2 {
+  justify-content: space-around;
+  font-size: 15px;
+  color: #2A9D8F;
+}
+
+.tag-size-3 {
+  justify-content: space-around;
+  font-size: 18px;
+  color: #E9C46A;
+}
+
+.tag-size-4 {
+  justify-content: space-around;
+  font-size: 21px;
+  color: #F4A261;
+}
+
+.tag-size-5 {
+  justify-content: space-around;
+  font-size: 24px;
+  color: #E76F51;
+}
+
+
+
