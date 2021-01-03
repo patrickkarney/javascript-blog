@@ -72,18 +72,15 @@
 
   function calculateTagsParams(tags){
     const params = {max: 0, min: 999999};
-    console.log('test');
+    
+    
     for( let tag in tags ){
-      //params.max = Math.max(tags[tag], params.max);
-      //params.min = Math.min(tags[tag], params.min);
-      if(tags[tag] > params.max){
-        params.max = tags[tag];
-      }
-      if(tags[tag] < params.min){
-        params.min = tags[tag];
-      }
+      params.max = Math.max(tags[tag], params.max);
+      params.min = Math.min(tags[tag], params.min);
       console.log(tag + ' is used ' + tags[tag] + ' times');
-    }
+      }
+      
+    
     return params;
   }
   
@@ -91,8 +88,7 @@
     
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
-    const tagsParams = calculateTagsParams(allTags);
-    console.log('tagsParams:', tagsParams);
+    
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     /* START LOOP: for every article: */
@@ -142,6 +138,8 @@
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
     console.log('allTags: ', allTags);
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
     
   }
   
