@@ -75,15 +75,11 @@
 
   function calculateTagsParams(tags){
     const params = {max: 0, min: 999999};
-    
-    
     for( let tag in tags ){
       params.max = Math.max(tags[tag], params.max);
       params.min = Math.min(tags[tag], params.min);
       console.log(tag + ' is used ' + tags[tag] + ' times');
-      }
-      
-    
+      }   
     return params;
   }
 
@@ -153,19 +149,13 @@
     for(let tag in allTags){
       /* [NEW] generate code of a link and add it to allTagsHTML */
       allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '"><span>' + tag + ' </span></a></li>';
-      console.log('allTagsHTML: ', allTagsHTML);
     }
     /* [NEW] END LOOP: for each tag in allTags: */
 
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
-    console.log('allTags: ', allTags);
-    
-    
-    
-  }
-  
-  
+    console.log('allTags: ', allTags);    
+  } 
 
   function tagClickHandler(event){
     /* prevent default action for this event */  
@@ -218,6 +208,8 @@
   addClickListenersToTags();
 
   function generateAuthors(){
+    /* [NEW] create a new variable allAuthors with an empty object */
+    const allAuthors = {};
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);  
     /* START LOOP: for every article: */
@@ -235,10 +227,33 @@
       
       /* add generated code to html variable */
       html = html + linkHTML;
+      /* [NEW] check if this link is NOT already in allAuthors */
+      if(!allAuthors[articleAuthor]) {
+        /* [NEW] add author to allAuthors object */
+        allAuthors[articleAuthor] = 1;
+      } else {
+        allAuthors[articleAuthor]++;
+      }
       /* insert HTML of all the links into the authors wrapper */
       authorWrapper.innerHTML = html;
     /* END LOOP: for every article: */
     }
+    /* [NEW] find list of authors in right column*/ 
+    const authorList = document.querySelector('.authors');
+    /* [NEW] create variable for all links HTML code */
+    let allAuthorsHTML = '';
+
+    /* [NEW] START LOOP: for each author in allAuthors: */
+    for(let author in allAuthors){
+      /* [NEW] generate code of a link and add it to allAuthorsHTML */
+      allAuthorsHTML += '<li><a href="#author-' + author + '"><span>' + author + ' </span> ('+ allAuthors[author] +') </a></li>';
+      console.log('allAuthorsHTML: ', allAuthorsHTML);
+    }
+    /* [NEW] END LOOP: for each author in allAuthors: */
+
+    /*[NEW] add HTML from allAuthorsHTML to tagList */
+    authorList.innerHTML = allAuthorsHTML;
+    console.log('allAuthors: ', allAuthors);    
   }
   generateAuthors();
 
